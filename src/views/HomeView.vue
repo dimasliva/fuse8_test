@@ -2,7 +2,7 @@
   <div class="container">
 		<div class="joke_wrapper">
 			<div class="field-container">
-				<input type="text" v-model="input" placeholder="Search jokes..." class="field" />
+				<input type="text" ref='focusMe' v-model="input" placeholder="Search jokes..." class="field" />
 			</div>
 			<span class="count">Found jokes: {{ store.jokes.length ? store.jokes.length : 0 }}</span>
 		</div>
@@ -53,6 +53,7 @@ export default {
         } 
     },
     mounted() {
+			this.$nextTick(() => this.$refs.focusMe.focus())
     },
     components: { Card }
 }
